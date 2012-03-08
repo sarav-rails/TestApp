@@ -1,0 +1,3 @@
+.reward-box .img-holder img{margin-top: expression(this.parentNode.offsetHeight > this.offsetHeight ? (this.parentNode.offsetHeight-this.offsetHeight + "px") : "0");}
+.inner-page3 #header .contact-form .text,
+.inner-page3 #header .contact-form .textarea{filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#fcfcfc',GradientType=0 );}

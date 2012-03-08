@@ -1,0 +1,26 @@
+<div class="box">
+	<a href="#" class="arrow">arrow</a>
+	<%= image_tag "ico-01.png", :width => "60", :height => "59", :alt => "image description" %>
+	<div class="text-holder">
+		<h2>Recruitment Offer</h2>
+		<p>Offer new customers a deal that will make them join </p>
+	</div>
+</div>
+<div class="content">
+	<div class="block">
+		<div class="holder">
+			<div class="frame">
+				<%= form_tag update_recruitment_offer_deals_path, :remote => true, :method => :post, :class=> "form-offer", :id => 'recruitment_offer_form' do %>
+					<fieldset>
+						<div class="text-field-1">
+							<%= image_tag asset_path('ajax_spinner.gif'), :id=> 'recruitment_spinner' %>
+							<%= image_tag asset_path('green_ticket.png'), :id=> 'recruitment_success' %>
+							<input type="text" value="<%= @recruitment_offer_text %>" name="description">
+						</div>
+						<input type="image" src="<%= asset_path 'btn-publish.gif' %>" alt="publish">
+					</fieldset>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

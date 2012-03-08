@@ -1,0 +1,78 @@
+<div class="box">
+	<a href="#" class="arrow">arrow</a>
+	<%= image_tag "ico-02.png", :width => "60", :height => "59", :alt => "image description" %>
+	<div class="text-holder">
+		<h2>Slow Hours</h2>
+		<p>Give a special reward between your slow hours. <br> i.e: “A Convict Cordial” between 2:00 pm and 4:00 pm </p>
+	</div>
+</div>
+<div class="content">
+	<div class="block">
+		<div class="holder">
+			<div class="frame">
+			<%= form_for(@slow_hour_offer, :url => update_slow_hour_offer_deals_path, :method => :post, :remote => true, :html => { :class => "form-hours", :id => "slow_hour_offer_form" }) do |f| %>
+					<fieldset>
+						<div class="row">
+							<div class="col">
+								<strong>When are your slow hours?</strong>
+								<div class="select-holder">
+									<%= f.select "start_time", options_for_select(SlowHourOffer::Times, @slow_hour_offer.start_time), {}, :class => "time" %>
+									<span class="text">to</span>
+									<%= f.select "end_time", options_for_select(SlowHourOffer::Times, @slow_hour_offer.end_time), {}, :class => "time" %>
+								</div>
+							</div>
+							<div class="col">
+								<strong>What days are your slow hours?</strong>
+								<ul class="week-list">
+									<li <%= @slow_hour_offer.monday? ? "class='on'" : nil %>>
+										<a href="#" class="mon">mon</a>
+										<%= f.check_box "monday", :hidden => true %>
+									</li>
+									<li <%= @slow_hour_offer.tuesday? ? "class='on'" : nil %>>
+										<a href="#" class="tue">tue</a>
+										<%= f.check_box "tuesday", :hidden => true %>
+									</li>
+									<li <%= @slow_hour_offer.wednesday? ? "class='on'" : nil %>>
+										<a href="#" class="wed">wed</a>
+										<%= f.check_box "wednesday", :hidden => true %>
+									</li>
+									<li <%= @slow_hour_offer.thursday? ? "class='on'" : nil %>>
+										<a href="#" class="thu">thu</a>
+										<%= f.check_box "thursday", :hidden => true %>
+									</li>
+									<li <%= @slow_hour_offer.friday? ? "class='on'" : nil %>>
+										<a href="#" class="fri">fri</a>
+										<%= f.check_box "friday", :hidden => true %>
+									</li>
+									<li <%= @slow_hour_offer.saturday? ? "class='on'" : nil %>>
+										<a href="#" class="sat">sat</a>
+										<%= f.check_box "saturday", :hidden => true %>
+									</li>
+									<li <%= @slow_hour_offer.sunday? ? "class='on'" : nil %>>
+										<a href="#" class="sun">sun</a>
+										<%= f.check_box "sunday", :hidden => true %>
+									</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row">
+							<div class="text-box">
+								<strong>Whats the offer?</strong>
+								<input type="checkbox" id="facebook">
+								<label for="facebook">Post on Facebook</label>
+							</div>
+							<div class="input-holder">
+								<div class="text-field-2">
+									<%= image_tag asset_path('ajax_spinner.gif'), :id=> 'slow_hour_spinner'%>
+									<%= image_tag asset_path('green_ticket.png'), :id=> 'slow_hour_success' %>
+									<%= f.text_field "description" %>
+								</div>
+								<input type="submit" value="submit" class="submit">
+							</div>
+						</div>
+					</fieldset>
+				<% end %>
+			</div>
+		</div>
+	</div>
+</div>

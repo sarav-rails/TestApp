@@ -1,0 +1,6 @@
+input[type=text], input[type=password], input[type=file], textarea{-webkit-appearance:none;}
+.inner-page3 #footer p{
+	font-size:9px;
+	line-height:12px;
+}
+.inner-page3 .menu li{line-height:16px;}
